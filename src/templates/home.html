@@ -1,0 +1,61 @@
+{% extends './base.html' %}
+
+{% block title %}Home{% endblock %}
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-xl navbar-light bg-light">
+	<a href="#" class="navbar-brand"></i>VWL Taller II Corte<b></b></a>
+	<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<!-- Collection of nav links, forms, and other content for toggling -->
+	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+		<div class="navbar-nav">
+			
+			<div class="nav-item dropdown">
+				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Home</a>
+				<div class="dropdown-menu">
+					<a href="{{ url_for('dashboard') }}" class="dropdown-item">Dashboard</a>
+					<a href="{{ url_for('crud') }}" class="dropdown-item">Crud</a>
+					
+				</div>
+			</div>
+		
+		</div>
+		<form class="navbar-form form-inline">
+			<div class="input-group search-box">								
+				<input type="text" id="search" class="form-control" placeholder="Buscador">
+				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+			</div>
+		</form>
+       
+		<div class="navbar-nav ml-auto">
+			<a href="#" class="nav-item nav-link notifications"><i class="fa fa-bell-o"></i><span class="badge"></span></a>
+			<a href="#" class="nav-item nav-link messages"><i class="fa fa-envelope-o"></i><span class="badge"></span></a></a>
+			<div class="nav-item dropdown">
+				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action">{{ current_user.fullname }} <b class="caret"></b></a>
+				<div class="dropdown-menu">
+					<a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Perfil</a></a>
+					<a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendario</a></a>
+					<a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Configuracion</a></a>
+					<div class="dropdown-divider"></div>
+                    <a  class="dropdown-item" href="{{ url_for('logout') }}"><i class="material-icons">&#xE8AC;</i> Desconectar</a></a>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merienda+One">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+{% endblock %}

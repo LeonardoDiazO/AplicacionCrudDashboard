@@ -1,0 +1,56 @@
+{% extends 'auth/crud.html' %}
+{% block title %}Agregar de herramienta{% endblock %}
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/crud.css') }}">
+{% endblock %}
+{% block body %}
+
+<a  class="btn btn-outline-secondary" href="{{ url_for('crud') }}"><</a>
+<div class="container">
+<section>
+    <h2>
+        Agregar una herramienta
+        <hr>
+    </h2>
+
+    <form action="{{ url_for('formAddHerramientas') }}" method="POST" class="mb-3" autocomplete="off" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col">
+                <label for="articulo">Articulo</label>
+                <input type="text" name="articulo" class="form-control" required>
+            </div>
+            <div class="col">
+                <label for="description">Descripción</label>
+                <input type="text" name="description" class="form-control" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="direccion">Direccion</label>
+                <input type="text" name="direccion" class="form-control" required>
+            </div>
+            <div class="col">
+                <label for="telefono">Telefono</label>
+                <input type="tel" name="telefono" class="form-control" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="precio">Precio</label>
+                <input type="number" name="precio" class="form-control" required>
+            </div>
+            <div class="col">
+                <label for="fecha">Fecha Actual</label>
+                <input type="date" name="fecha" class="form-control" >
+            </div>
+        </div>
+        
+        <hr>
+
+        <input class="button-primary mt-3 btn btn-info btn-block bold" 
+        style="margin-left: 89%;" type="submit" value="Guardar Registro">
+    </form>
+</section>
+</div>
+
+{% endblock %}
