@@ -5,70 +5,35 @@
 {% block customCSS %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
 {% endblock %}
+
+
+
 {% block body %}
-<!-- <canvas id="line-chart" width="900" height="400"></canvas> -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+<script src="/src/templates/auth/app.js"></script>
 
-<a  class="btn btn-outline-secondary" href="{{ url_for('home') }}"><</a>
+<a  class="btn btn-outline-secondary" style="margin-right: 95%;" href="{{ url_for('home') }}"><</a>
 
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualización de datos con ChartJS</title>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
-</head>
-
-<body>
-    <main>
-
-        <h1>Montañas rusas dataviz</h1>
-        <p>Visualización de estadísticas globales</p>
-
-        <hr>
-
-        <section class="cols-2">
-
-            <figure>
-                <h2>Comparativa de modelos</h2>
-                <canvas id="modelsChart"></canvas>
-               
-            </figure>
-
-            <figure>
-                <h2>Comparativa de características:
-                    <select id="featuresOptions">
-                        <option value="height">Altura (m)</option>
-                        <option value="length">Longitud (m)</option>
-                        <option value="speed">Velocidad (km/h)</option>
-                    </select>
-                </h2>
-                <canvas id="featuresChart"></canvas>
-            </figure>
-
-        </section>
-
-        <section class="cols-1">
-            <figure>
-                <h2>Construcciones por año</h2>
-                <canvas id="yearsChart" height="300px"></canvas>
-            </figure>
-        </section>
-
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-
-   
-
-</body>
-
-</html>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<div class="container">
+<h1>CharJS Json data Api</h1>
+<canvas id="speedChart1" width="600" height="400"></canvas>
+<canvas id="speedChart2" width="600" height="400"></canvas>
+<canvas id="speedChart3" width="600" height="400"></canvas>
+<canvas id="speedChart4" width="600" height="400"></canvas>
+<canvas id="speedChart5" width="600" height="400"></canvas>
+<canvas id="speedChart6" width="600" height="400"></canvas>
 
 
 
+<script type="text/javascript" src="{{ url_for('static', filename='js/1.js') }}"></script>
+<br>
+<script type="text/javascript" src="{{ url_for('static', filename='js/2.js') }}"></script>
+<br>
+<script type="text/javascript" src="{{ url_for('static', filename='js/3.js') }}"></script>
+<br>
+<script type="text/javascript" src="{{ url_for('static', filename='js/4.js') }}"></script>
+<br>
+<script type="text/javascript" src="{{ url_for('static', filename='js/5.js') }}"></script>
+
+</div>
 {% endblock %}

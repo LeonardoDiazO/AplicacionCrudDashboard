@@ -122,11 +122,18 @@ def actualizar():
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
-    url = "http://127.0.0.1:4000/api/herramientas"
+    return render_template('auth/dashboard.html')
+
+
+@app.route('/fromDashboard', methods=['GET', 'POST'])
+def fromDashboard():
+    url = "https://pokeapi.co/api/v2/pokemon/ditto"
     response = requests.get(url)
-    dataDash =  response.json()
-    total =  len(dataDash)#total de registros    
-    return render_template('auth/dashboard.html',dataDash=data)
+    data = response.json()
+    return json.loads(data)
+    
+
+
 
 @app.route('/protected')
 @login_required
