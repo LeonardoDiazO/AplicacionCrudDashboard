@@ -1,9 +1,12 @@
 
 body {
-    color: #404E67;
-    background: #F5F7FA;
-    font-family: 'Open Sans', sans-serif;
-}
+    background: #181f38;
+    font-family: 'Poppins', monospace;
+    color: white;
+    font-size: .7em;
+    font-weight: 200;
+    letter-spacing: 1px;
+  }
 /* .table-wrapper {
     width: 700px;
     margin: 30px auto;

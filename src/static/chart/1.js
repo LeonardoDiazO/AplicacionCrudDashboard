@@ -1,5 +1,5 @@
 var xmlhttp = new XMLHttpRequest();
-var url = "https://pokeapi.co/api/v2/pokemon/ditto";
+var url = "http://localhost:4000/api/herramientas";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 xmlhttp.onreadystatechange = function() {
@@ -9,8 +9,7 @@ xmlhttp.onreadystatechange = function() {
     }
 }
 
-
-const ctx = document.getElementById('speedChart5');
+const ctx = document.getElementById('speedChart1');
 
   new Chart(ctx, {
     type: 'bar',
@@ -32,17 +31,30 @@ const ctx = document.getElementById('speedChart5');
   });
 
 
-// var speedCanvas = document.getElementById("speedChart5");
+// var speedCanvas1 = document.getElementById("speedChart1");
 
 // Chart.defaults.global.defaultFontFamily = "Lato";
 // Chart.defaults.global.defaultFontSize = 18;
 
+// var dataFirst = {
+//     label: "Car A - Speed (mph)",
+//     data: [0, 59, 75, 20, 20, 55, 40],
+//     lineTension: 0,
+//     fill: false,
+//     borderColor: 'red'
+//   };
+
+// var dataSecond = {
+//     label: "Car B - Speed (mph)",
+//     data: [20, 15, 60, 60, 65, 30, 70],
+//     lineTension: 0,
+//     fill: false,
+//   borderColor: 'blue'
+//   };
+
 // var speedData = {
 //   labels: ["0s", "10s", "20s", "30s", "40s", "50s", "60s"],
-//   datasets: [{
-//     label: "Car Speed (mph)",
-//     data: [0, 59, 75, 20, 20, 55, 40],
-//   }]
+//   datasets: [dataFirst, dataSecond]
 // };
 
 // var chartOptions = {

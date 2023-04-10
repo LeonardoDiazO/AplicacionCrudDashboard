@@ -5,10 +5,13 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/crud.css') }}">
 {% endblock %}
 {% block body %}
-
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 {% if (listaHerramienta) %}
 
-<a  class="btn btn-outline-secondary" href="{{ url_for('home') }}"><</a>
+<a  style="margin-right: 70%; " class="btn btn-outline-secondary" href="{{ url_for('home') }}"> 
+    <ion-icon name="arrow-undo-circle-outline"></ion-icon>
+</a>
 <div class="container-lg">
     <div class="table-responsive">
         <div class="table-wrapper">

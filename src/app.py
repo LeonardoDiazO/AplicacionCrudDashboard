@@ -10,13 +10,13 @@ from flask_paginate import Pagination, get_page_parameter
 from datetime import datetime
 
 
-
+#Confic para la conexion base de datos local
 from config import config
 
 # Models:
 from models.ModelUser import ModelUser
 
-# Entities:
+# Entities donde podemos obtener una contraseña encrypt:
 from models.entities.User import User
 
 app = Flask(__name__)
@@ -30,12 +30,12 @@ login_manager_app = LoginManager(app)
 def load_user(id):
     return ModelUser.get_by_id(db, id)
 
-
+#Ruta decoradora de la vista
 @app.route('/')
 def index():
     return redirect(url_for('login'))
 
-
+#Ruta vista login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -62,11 +62,18 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
+#Ruta que permite que no se pueda ingresar sin que el usuario este logeado
+@app.route('/protected')
+@login_required
+def protected():
+    return "<h1>Esta es una vista protegida, solo para usuarios autenticados.</h1>"
 
+#Ruta vista Home donde se encuentra el dashboard
 @app.route('/home')
 def home():
     return render_template('home.html')
 
+#Ruta vista CRUD
 @app.route('/crud', methods=['GET', 'POST'])
 def crud():
     page = request.args.get(get_page_parameter(), type=int, default=1)
@@ -88,7 +95,7 @@ def crud():
 def agregar():
     return render_template('auth/agregar.html')
 
-#Registrando nueva herramient
+#Ruta vista Almacenar herramientas
 @app.route('/herramientas', methods=['POST'])
 def formAddHerramientas():
     json_string = '{"fecha": "2023-04-09"}'
@@ -119,40 +126,32 @@ def actualizar():
 
     
     
+#Ruta vista de chart
+@app.route('/chart', methods=['GET', 'POST'])
+def chart():
+    return render_template('auth/chart.html')
 
-@app.route('/dashboard', methods=['GET', 'POST'])
-def dashboard():
-    return render_template('auth/dashboard.html')
-
-
-@app.route('/fromDashboard', methods=['GET', 'POST'])
-def fromDashboard():
-    url = "https://pokeapi.co/api/v2/pokemon/ditto"
+#Ruta vista del formulario que visaliza los chart
+@app.route('/fromChart', methods=['GET', 'POST'])
+def fromChart():
+    url = "http://localhost:4000/api/herramientas"
     response = requests.get(url)
     data = response.json()
     return json.loads(data)
     
 
 
-
-@app.route('/protected')
-@login_required
-def protected():
-    return "<h1>Esta es una vista protegida, solo para usuarios autenticados.</h1>"
-
-
+#Rutas de vista error HTTP 404
 def status_401(error):
     return redirect(url_for('login'))
-
 
 def status_404(error):
     return "<h1>Página no encontrada</h1>", 404
 
 
+#Ruta de api para la optencion de la data 
 response = requests.get('http://localhost:4000/api/herramientas')
 data = response.json()
-
-#Listar los datos de herramientas
 @app.route('/lista', methods=['GET'])
 def listar_datos():
     return jsonify(datos=data)

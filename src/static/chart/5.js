@@ -1,5 +1,5 @@
 var xmlhttp = new XMLHttpRequest();
-var url = "https://pokeapi.co/api/v2/pokemon/ditto";
+var url = "http://localhost:4000/api/herramientas";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 xmlhttp.onreadystatechange = function() {
@@ -10,7 +10,7 @@ xmlhttp.onreadystatechange = function() {
 }
 
 
-const ctx = document.getElementById('speedChart6');
+const ctx = document.getElementById('speedChart5');
 
   new Chart(ctx, {
     type: 'bar',
@@ -32,7 +32,7 @@ const ctx = document.getElementById('speedChart6');
   });
 
 
-// var speedCanvas = document.getElementById("speedChart6");
+// var speedCanvas = document.getElementById("speedChart5");
 
 // Chart.defaults.global.defaultFontFamily = "Lato";
 // Chart.defaults.global.defaultFontSize = 18;
@@ -42,18 +42,6 @@ const ctx = document.getElementById('speedChart6');
 //   datasets: [{
 //     label: "Car Speed (mph)",
 //     data: [0, 59, 75, 20, 20, 55, 40],
-//     lineTension: 0,
-//     fill: false,
-//     borderColor: 'orange',
-//     backgroundColor: 'transparent',
-//     borderDash: [5, 5],
-//     pointBorderColor: 'orange',
-//     pointBackgroundColor: 'rgba(255,150,0,0.5)',
-//     pointRadius: 5,
-//     pointHoverRadius: 10,
-//     pointHitRadius: 30,
-//     pointBorderWidth: 2,
-//     pointStyle: 'rectRounded'
 //   }]
 // };
 

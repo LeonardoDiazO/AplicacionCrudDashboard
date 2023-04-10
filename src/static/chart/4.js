@@ -1,5 +1,5 @@
 var xmlhttp = new XMLHttpRequest();
-var url = "https://pokeapi.co/api/v2/pokemon/ditto";
+var url = "http://localhost:4000/api/herramientas";
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 xmlhttp.onreadystatechange = function() {

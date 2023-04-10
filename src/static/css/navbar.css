@@ -1,7 +1,12 @@
 
 body {
-	background: #eeeeee;
-}
+	background: #181f38;
+	font-family: 'Poppins', monospace;
+	color: white;
+	font-size: .7em;
+	font-weight: 200;
+	letter-spacing: 1px;
+  }
 .form-inline {
 	display: inline-block;
 }
@@ -9,7 +14,7 @@ body {
 	padding: 0 !important;
 }
 .navbar {		
-	background: #fff;
+	background: #181f38;
 	padding-left: 16px;
 	padding-right: 16px;
 	border-bottom: 1px solid #d6d6d6;
